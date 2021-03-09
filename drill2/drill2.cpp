@@ -26,35 +26,19 @@ int main()
  			grid.add(Point{0,y}, Point{x_size,y});
 
 
- 	Rectangle a {Point{0,0},75,75};
- 	a.set_fill_color(Color::red);
- 	Rectangle b {Point{75,75},75,75};
- 	b.set_fill_color(Color::red);
- 	Rectangle c {Point{150,150},75,75};
- 	c.set_fill_color(Color::red);
- 	Rectangle d {Point{225,225},75,75};
- 	d.set_fill_color(Color::red);
- 	Rectangle e {Point{300,300},75,75};
- 	e.set_fill_color(Color::red);
- 	Rectangle f {Point{375,375},75,75};
- 	f.set_fill_color(Color::red);
- 	Rectangle g {Point{450,450},75,75};
- 	g.set_fill_color(Color::red);
- 	Rectangle h {Point{525,525},75,75};
- 	h.set_fill_color(Color::red);
+    Vector_ref<Rectangle>rec;
+ 	
+ 	for (int i=0;i<8;++i)
+ 	{
+ 		rec.push_back(new Rectangle(Point{i*75,i*75},75,75));
+ 		rec[i].set_fill_color(Color::red);
+ 		win.attach(rec[i]);
+ 	}
 
  	Image kep1 {Point{150,0}, "image.jpg"};
  	Image kep2 {Point{300,150}, "image.jpg"};
  	Image kep3 {Point{0,300},"image.jpg"};
 
- 	win.attach(h);
- 	win.attach(g);
- 	win.attach(f);
- 	win.attach(e);
- 	win.attach(d);
- 	win.attach(c);
- 	win.attach(b);
- 	win.attach(a);
  	win.attach(grid);
  	win.attach(kep1);
  	win.attach(kep2);
